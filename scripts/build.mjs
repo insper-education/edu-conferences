@@ -14,6 +14,9 @@ for (const venue of data) {
   if (venue.deadline_status === 'confirmed' && (!d || !venue.deadline_source)) throw new Error('Prazo confirmado precisa de data e fonte');
   if (venue.deadline_status === 'unknown' && d) throw new Error('Status incompatível com data');
   if (!venue.checked_at || !venue.source_url) throw new Error('Registro sem auditoria');
+  if (venue.h5_index != null && (!Number.isInteger(venue.h5_index) || venue.h5_index < 0 || !venue.h5_source || !venue.h5_checked_at)) throw new Error(`${venue.id}: índice h5 requer valor inteiro, fonte e data de consulta`);
+  if (venue.h5_source && !/^https?:$/.test(new URL(venue.h5_source).protocol)) throw new Error(`${venue.id}: fonte h5 inválida`);
+  if (venue.h5_checked_at && (!/^\d{4}-\d{2}-\d{2}$/.test(venue.h5_checked_at) || !Number.isFinite(Date.parse(venue.h5_checked_at)) || new Date(venue.h5_checked_at).toISOString().slice(0,10) !== venue.h5_checked_at)) throw new Error(`${venue.id}: data de consulta h5 inválida`);
   for (const url of [venue.source_url,venue.deadline_source].filter(Boolean)) if (!/^https?:$/.test(new URL(url).protocol)) throw new Error('Fonte inválida');
   if (venue.deadline_at && (venue.deadline_precision !== 'day' || !venue.deadline_at.startsWith(d+'T') || !Number.isFinite(Date.parse(venue.deadline_at)) || !/(Z|[+-]\d{2}:\d{2})$/.test(venue.deadline_at))) throw new Error('Instante ou fuso incompatível');
   if (d && !/^\d{4}-(0[1-9]|1[0-2])(-\d{2})?$/.test(d)) throw new Error(`${venue.id}: data inválida`);

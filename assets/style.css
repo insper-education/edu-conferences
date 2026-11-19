@@ -47,6 +47,11 @@
 
 .site-nav a[aria-current="page"]{color:var(--red);font-weight:600}
 .github-icon{width:24px;height:24px;vertical-align:middle}
+.deadline-marker.certainty-confirmed .deadline-tooltip{color:#70df9b}
+.deadline-marker.certainty-estimated .deadline-tooltip{color:#ffe080}
+.deadline-row .venue-label>a>span:first-child{font-weight:700;margin-left:0;white-space:normal}
+.deadline-row .venue-label>a .country-flag{margin-left:4px}
+.table-wrap .conference-name .country-flag{margin-left:4px}
 .last-updated{margin:8px 0 0;font-size:13px;color:#62636b}
 .team-section{border-top:1px solid var(--line);padding:28px 0 36px}
 .team-section h2{font-size:24px;margin:0 0 18px}

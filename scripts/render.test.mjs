@@ -19,6 +19,8 @@ test('app renderiza a data manual do EduComp na timeline e na lista', async () =
   const timeline = element('results').innerHTML;
   assert.match(timeline,/18 de jan\. de 2027/);
   assert.match(timeline,/Inserido manualmente/);
+  assert.match(timeline,/🇧🇷/);
+  assert.match(timeline,/aria-label="Conferência brasileira"/);
   assert.ok(timeline.indexOf('deadline-chart') < timeline.indexOf('<table>'));
   assert.match(timeline,/<table>/);
   const list = element('results').innerHTML;
@@ -32,6 +34,7 @@ test('app renderiza a data manual do EduComp na timeline e na lista', async () =
   assert.match(filtered,/<table>/);
   assert.doesNotMatch(filtered,/EduComp/i);
   assert.match(filtered,/ITiCSE/i);
+  assert.doesNotMatch(filtered,/🇧🇷/);
   element('query').value='koli';
   element('filters').listeners.input();
   const undated = element('results').innerHTML;

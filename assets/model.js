@@ -66,7 +66,8 @@ function estimateEdition(previous, year, existing) {
  return resolveDeadline({
   id:existing?.id || `${previous.slug}-${year}`, slug:previous.slug,
   conferencia:previous.conferencia, ano_edicao:year,
-  site_url:existing?.site_url || previous.site_url, area:previous.area,
+   site_url:existing?.site_url || previous.site_url, area:previous.area, nacional:existing?.nacional ?? previous.nacional,
+   h5_index:existing?.h5_index ?? previous.h5_index, h5_source:existing?.h5_source ?? previous.h5_source, h5_checked_at:existing?.h5_checked_at ?? previous.h5_checked_at,
   deadline, deadline_precision:deadline ? 'month' : null,
   deadline_status:deadline ? 'estimated' : 'unknown',
   deadline_track:previous.deadline_track, deadline_manual:null,
@@ -75,7 +76,7 @@ function estimateEdition(previous, year, existing) {
   checked_at:previous.checked_at, source_access:'projection',
   provenance:`Projeção anual a partir da edição ${previous.ano_edicao}; não é uma chamada confirmada.`,
   note:deadline ? `Mês projetado a partir do prazo ${previous.deadline}. Dia, chamada e realização da próxima edição não confirmados. O link pode apontar para uma edição anterior.` : 'Próxima edição sem prazo conhecido.',
-  estimated_from:previous.id
+   estimated_from:previous.id, estimated_from_deadline:previous.deadline
  });
 }
 export function selectVenues(venues, {query='',area='',year='',status='',precision='',sort='deadline'}={},now=new Date()) {

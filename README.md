@@ -26,6 +26,10 @@ Edite `data/conferences.json`. O catálogo mantém 37 edições e 19 venues da l
 
 `deadline_precision` é exibido na lista e pode ser filtrado:
 
+Para identificar uma conferência brasileira, inclua `"nacional": true` em cada edição em `data/conferences.json`. A interface exibirá 🇧🇷 ao lado do nome; o campo pode ser omitido para as demais.
+
+O índice h5 é registrado em `h5_index`, com a URL em `h5_source` e a data de consulta em `h5_checked_at` (`YYYY-MM-DD`). Use `null` quando não houver informação verificada. O atualizador semanal preserva esses campos, mas não os pesquisa nem atualiza automaticamente; é necessário consultar uma fonte confiável e cadastrá-los manualmente.
+
 - `day`: data completa (`YYYY-MM-DD`).
 - `month`: mês (`YYYY-MM`), sem inventar um dia.
 - `null`: prazo ainda desconhecido.

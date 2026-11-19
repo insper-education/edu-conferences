@@ -18,7 +18,10 @@
     "deadline_track": "Resumo estruturado — Full Papers e WIP",
     "deadline_status": "estimated",
     "deadline": "2027-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "fie-2028",
@@ -39,7 +42,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "educon-2027",
@@ -60,7 +66,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2026-10-30",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "educon-2028",
@@ -81,7 +90,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-10",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "sigcse-ts-2027",
@@ -102,7 +114,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2026-06-26",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "sigcse-ts-2028",
@@ -123,7 +138,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-06",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "iticse-2027",
@@ -144,7 +162,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2027-01-11",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "iticse-2028",
@@ -165,7 +186,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2028-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "koli-2027",
@@ -186,7 +210,10 @@
     "deadline_track": "Submissão inicial — Full Papers e Discussion Papers",
     "deadline_status": "estimated",
     "deadline": "2027-07",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "koli-2028",
@@ -207,7 +234,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "paee-ale-2027",
@@ -228,7 +258,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "paee-ale-2028",
@@ -249,11 +282,15 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2028-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "educomp-2027",
     "slug": "educomp",
+    "nacional": true,
     "conferencia": "EduComp — Simpósio Brasileiro de Educação em Computação",
     "ano_edicao": 2027,
     "site_url": "https://educomp.sbc.org.br/2027/",
@@ -299,11 +336,15 @@
           "date": "2027-04-15"
         }
       ]
-    }
+    },
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "educomp-2028",
     "slug": "educomp",
+    "nacional": true,
     "conferencia": "EduComp — Simpósio Brasileiro de Educação em Computação",
     "ano_edicao": 2028,
     "site_url": "https://www.educompbrasil.org/",
@@ -320,11 +361,15 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-12",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "cobenge-2027",
     "slug": "cobenge",
+    "nacional": true,
     "conferencia": "COBENGE — Congresso Brasileiro de Educação em Engenharia",
     "ano_edicao": 2027,
     "site_url": "https://admin.abenge.org.br/",
@@ -341,11 +386,15 @@
     "deadline_track": "Trabalhos científicos — STs e SPs",
     "deadline_status": "estimated",
     "deadline": "2027-05",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "cobenge-2028",
     "slug": "cobenge",
+    "nacional": true,
     "conferencia": "COBENGE — Congresso Brasileiro de Educação em Engenharia",
     "ano_edicao": 2028,
     "site_url": "https://admin.abenge.org.br/",
@@ -362,7 +411,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "lak-2027",
@@ -383,7 +435,10 @@
     "deadline_track": "Resumo inicial recomendado (não obrigatório)",
     "deadline_status": "confirmed",
     "deadline": "2026-09-21",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "lak-2028",
@@ -404,7 +459,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-09",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "isls-2027",
@@ -425,7 +483,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2026-10-09",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "isls-2028",
@@ -446,7 +507,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-10",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "asee-2027",
@@ -467,7 +531,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2026-10-14",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "asee-2028",
@@ -488,7 +555,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-10",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "icer-2027",
@@ -509,7 +579,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2027-04-02",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "icer-2028",
@@ -530,7 +603,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2028-04",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "comped-2027",
@@ -551,7 +627,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2027-03",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "edunine-2027",
@@ -574,7 +653,10 @@
     "deadline_artigo": "2026-09-30",
     "deadline_artigo_precision": "day",
     "deadline": "2026-09-30",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "edunine-2028",
@@ -595,7 +677,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "csedu-2027",
@@ -621,7 +706,10 @@
     "deadline_artigo": "2026-12-01",
     "deadline_artigo_precision": "day",
     "deadline": "2026-12-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "csedu-2028",
@@ -642,7 +730,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "aied-2027",
@@ -663,7 +754,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2027-01-22",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "aied-2028",
@@ -684,7 +778,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2028-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "edm-2027",
@@ -705,7 +802,10 @@
     "deadline_track": "Resumo de artigos",
     "deadline_status": "confirmed",
     "deadline": "2027-02-08",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "edm-2028",
@@ -726,7 +826,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "estimated",
     "deadline": "2028-02",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "sefi-2027",
@@ -749,7 +852,10 @@
     "deadline_artigo": "2027-04",
     "deadline_artigo_precision": "month",
     "deadline": "2027-04",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "sefi-2028",
@@ -770,7 +876,10 @@
     "deadline_track": "Submissão (etapa a confirmar)",
     "deadline_status": "unknown",
     "deadline": null,
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "idc-2027",
@@ -791,7 +900,10 @@
     "deadline_track": "Resumo e metadados — artigos completos e curtos",
     "deadline_status": "confirmed",
     "deadline": "2027-01-18",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   },
   {
     "id": "idc-2028",
@@ -812,6 +924,9 @@
     "deadline_track": "Resumo e metadados (estimativa)",
     "deadline_status": "estimated",
     "deadline": "2028-01",
-    "deadline_manual": null
+    "deadline_manual": null,
+    "h5_index": null,
+    "h5_source": null,
+    "h5_checked_at": null
   }
 ]
