@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curadoria venues pesquisa em educacao</title>
+  <meta name="description" content="Curadoria de venues para pesquisa em educação.">
+  <link rel="stylesheet" href="assets/style.css"><script type="module" src="assets/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#catalogo">Pular para o catálogo</a>
+  <header><a class="brand" href="./"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Logo_Insper.png" alt="Insper"><span>Grupo de Pesquisa em Educacao</span></a><nav class="site-nav" aria-label="Navegação principal"><a href="equipe.html">Equipe</a></nav></header>
+  <main>
+    <section class="hero"><h1>Curadoria Venues</h1><div class="hero-foot"><span>Educação · Computação · Engenharia</span></div></section>
+    <section id="catalogo">
+      <form id="filters" class="filters">
+        <div class="search"><label>Buscar<input id="query" type="search" placeholder="Nome ou tema"></label><button type="reset" class="reset">Limpar filtros</button></div>
+        <fieldset><legend>Área</legend><div id="area-buttons" class="filter-buttons"></div></fieldset>
+      </form>
+      <p id="count" role="status" aria-live="polite">Carregando catálogo…</p><div id="results"></div><noscript><p>Ative JavaScript para consultar os filtros ou <a href="data/conferences.json">abra o catálogo em JSON</a>.</p></noscript>
+    </section>
+  </main><footer><span>Grupo de pesquisa em educação · Insper</span></footer>
+</body></html>

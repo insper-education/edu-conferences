@@ -1,0 +1,11 @@
+{
+  "name": "curadoria-venues-insper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test scripts/model.test.mjs scripts/render.test.mjs",
+    "update-conferences": "node scripts/update-conferences.mjs",
+    "dev": "python3 scripts/serve.py"
+  }
+}
