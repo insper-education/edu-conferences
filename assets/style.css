@@ -46,6 +46,8 @@
 .deadline-row .venue-label>a{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.deadline-row .venue-label>a span{margin-left:0;white-space:nowrap}
 
 .site-nav a[aria-current="page"]{color:var(--red);font-weight:600}
+.github-icon{width:24px;height:24px;vertical-align:middle}
+.last-updated{margin:8px 0 0;font-size:13px;color:#62636b}
 .team-section{border-top:1px solid var(--line);padding:28px 0 36px}
 .team-section h2{font-size:24px;margin:0 0 18px}
 .team-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;list-style:none;padding:0;margin:0}

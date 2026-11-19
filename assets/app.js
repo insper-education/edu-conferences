@@ -66,7 +66,9 @@ $('filters').addEventListener('reset', () => {
 try {
  const response = await fetch('data/conferences.json', {cache:'no-store'});
  if (!response.ok) throw new Error('Falha no catálogo');
- venues = await response.json();
- renderFilterButtons();
+  venues = await response.json();
+  const latestCheck = venues.flatMap(v => [v.checked_at, v.deadline_manual?.checked_at]).filter(value => /^\d{4}-\d{2}-\d{2}$/.test(value || '')).sort().at(-1);
+  if (latestCheck && $('last-updated')) $('last-updated').textContent = `Última verificação do catálogo: ${latestCheck.split('-').reverse().join('/')}`;
+  renderFilterButtons();
  render();
 } catch (error) { $('count').hidden = false; $('count').textContent = 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.'; }
