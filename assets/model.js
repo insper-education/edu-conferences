@@ -1,3 +1,4 @@
+import {eventEnded, projectEvent} from './events.js';
 export const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const resolved = Symbol('resolvedDeadline');
 export function resolveDeadline(venue) {
@@ -25,8 +26,9 @@ export function statusOf(v, now = new Date()) {
  const today = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
  return v.deadline < today ? 'closed' : 'open';
 }
-// Select the next edition before applying UI filters, so filtering cannot reveal
-// a second edition of a venue that still has a current deadline.
+// Keep one edition per venue until the event ends. Without event dates,
+// preserve the previous selection rule based on the submission deadline.
+const editionIsUpcoming = (v, now) => v.event_start ? !eventEnded(v,now) : statusOf(v,now) !== 'closed';
 export function upcomingVenues(venues, now = new Date()) {
  const groups = new Map();
  for (const raw of venues) {
@@ -42,7 +44,7 @@ export function upcomingVenues(venues, now = new Date()) {
   for (const edition of editions) {
    const candidate = !edition.deadline && previous?.deadline
     ? estimateEdition(previous, edition.ano_edicao, edition) : edition;
-   if (statusOf(candidate,now) !== 'closed' && (candidate.deadline || candidate.ano_edicao >= now.getFullYear())) {
+   if (editionIsUpcoming(candidate,now) && (candidate.deadline || candidate.ano_edicao >= now.getFullYear())) {
     selected = candidate;
     break;
    }
@@ -51,7 +53,7 @@ export function upcomingVenues(venues, now = new Date()) {
   if (!selected && previous) {
    let year = Math.max(previous.ano_edicao+1, now.getFullYear());
    selected = estimateEdition(previous,year);
-   while (statusOf(selected,now) === 'closed') selected = estimateEdition(previous,++year);
+   while (!editionIsUpcoming(selected,now)) selected = estimateEdition(previous,++year);
   }
   if (selected) result.push(selected);
  }
@@ -68,6 +70,7 @@ function estimateEdition(previous, year, existing) {
   conferencia:previous.conferencia, ano_edicao:year,
    site_url:existing?.site_url || previous.site_url, area:previous.area, nacional:existing?.nacional ?? previous.nacional,
    h5_index:existing?.h5_index ?? previous.h5_index, h5_source:existing?.h5_source ?? previous.h5_source, h5_checked_at:existing?.h5_checked_at ?? previous.h5_checked_at,
+  ...projectEvent(previous,year,existing),
   deadline, deadline_precision:deadline ? 'month' : null,
   deadline_status:deadline ? 'estimated' : 'unknown',
   deadline_track:previous.deadline_track, deadline_manual:null,
