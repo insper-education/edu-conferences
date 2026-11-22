@@ -1,5 +1,5 @@
 // Use UTC for calendar geometry only; no event/submission hour is inferred.
-import {resolveDeadline} from './model.js';
+import {selectVenues} from './model.js';
 const dayMs = 86400000;
 function interval(value, last, precision, duration = false) {
  if (!value) return null;
@@ -19,10 +19,10 @@ export function timelineScale(venues, now = new Date()) {
   const from = Math.max(start,marker.start), to = Math.min(end,marker.end);
   return {...marker,left:position(from),width:position(to)-position(from),clippedStart:marker.start<start,clippedEnd:marker.end>end};
  };
- const rows = venues.map(resolveDeadline).map(venue => ({venue,
+ const rows = selectVenues(venues).map(venue => ({venue,
   deadline:clip(interval(venue.deadline,null,venue.deadline_precision)),
   event:clip(interval(venue.event_start,venue.event_end,venue.event_precision,true))
- })).filter(row => row.deadline || row.event).sort((a,b) => Math.min(a.deadline?.start ?? Infinity,a.event?.start ?? Infinity)-Math.min(b.deadline?.start ?? Infinity,b.event?.start ?? Infinity) || a.venue.conferencia.localeCompare(b.venue.conferencia));
+ })).filter(row => row.deadline || row.event);
  if (!rows.length) return null;
  const months = [];
  for (let tick = start; tick < end;) {
