@@ -53,7 +53,7 @@ O campo `deadline_artigo_precision` refere-se apenas ao prazo de artigo e não a
 
 ## Visualizações e validação
 
-A visualização inicial é a linha do tempo horizontal, com uma linha por edição e eixo mensal de hoje (inclusive) até a mesma data no próximo ano (exclusive). Em 29 de fevereiro, o limite do ano seguinte é 28 de fevereiro. Períodos que cruzam os limites são recortados. Círculos indicam deadlines; losangos e faixas roxas indicam início e período de realização. Contorno tracejado identifica estimativas. Datas sem informação ou fora da janela continuam na tabela. A tabela aparece logo abaixo da linha do tempo. As duas visualizações exibem todas as conferências, sem busca ou filtros. No celular, o gráfico permite rolagem horizontal com nomes fixos.
+A visualização inicial é a linha do tempo horizontal, com uma linha por edição e eixo mensal de hoje (inclusive) até a mesma data no próximo ano (exclusive). Em 29 de fevereiro, o limite do ano seguinte é 28 de fevereiro. Períodos que cruzam os limites são recortados. Círculos indicam deadlines; losangos e faixas indicam início e período de realização. Verde identifica informações confirmadas e amarelo identifica estimativas, tanto nos indicadores quanto nas datas da tabela. A legenda usa os mesmos estilos dos indicadores. Contorno tracejado identifica estimativas. Datas sem informação ou fora da janela continuam na tabela. A tabela aparece logo abaixo da linha do tempo. As duas visualizações exibem todas as conferências, sem busca ou filtros. No celular, o gráfico permite rolagem horizontal com nomes fixos.
 
 `npm run build` valida IDs, campos, URLs, datas, precisão, confirmação e fonte, e gera `site/`. `npm test` verifica importação, renderização do catálogo, fusos, validação das datas do evento, projeções e recorte da linha do tempo.
 
@@ -122,7 +122,7 @@ Precisão e confirmação são independentes: CompEd 2027 tem outubro e São Pau
 
 Sem data, use início/fim/precisão `null` e status `unknown`. Uma data exige fonte e justificativa. O build rejeita datas impossíveis, período invertido, ano incompatível, cidade sem país e confirmação sem fonte. Datas do evento são dias de calendário, sem horário ou fuso de deadline.
 
-A coluna **Data da conferência**, imediatamente após **Deadline**, mostra período, confirmação, cidade/país e link da fonte. Os indicadores do evento exibem essas informações ao passar o mouse ou receber foco pelo teclado.
+A coluna **Data da conferência**, imediatamente após **Deadline**, mostra período, confirmação e cidade/país. As referências permanecem nos campos `event_source` e `event_provenance` do JSON. Os indicadores do evento exibem essas informações ao passar o mouse ou receber foco pelo teclado.
 
 A pesquisa inicial de 22/11/2026 foi feita uma conferência por vez para as 19 séries (37 registros): 18 períodos confirmados e 19 estimativas mensais. ASEE e SEFI têm datas oficiais para 2028; EDUCON tem Dubai confirmado para 2028, mas mês ainda projetado. EduComp, COBENGE e Koli 2027 usam estimativas baseadas em 2026. As URLs e ressalvas ficam em cada registro. Para EDUCON 2027, adotou-se 5–9 de abril da página da edição, registrando a divergência com o calendário da sociedade (6–9 de abril).
 
