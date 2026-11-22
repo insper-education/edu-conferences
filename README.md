@@ -26,7 +26,7 @@ Edite `data/conferences.json`. O catálogo mantém 37 edições e 19 venues da l
 
 `deadline_precision` define a precisão do prazo exibido:
 
-Para identificar uma conferência brasileira, inclua `"nacional": true` em cada edição em `data/conferences.json`. A interface exibirá 🇧🇷 ao lado do nome; o campo pode ser omitido para as demais.
+Para identificar uma conferência brasileira, inclua `"nacional": true` em cada edição em `data/conferences.json`. A interface exibe bandeiras ao lado do nome na lista e na timeline, usando `event_country` da edição. Os países europeus compartilham 🇪🇺, incluindo o Reino Unido; os demais usam a bandeira nacional. O país permanece por extenso na célula do evento e no tooltip. Sem país conhecido, `nacional: true` mantém 🇧🇷 como alternativa; para os demais casos não se infere uma bandeira.
 
 O índice h5 é registrado em `h5_index`, com a URL em `h5_source` e a data de consulta em `h5_checked_at` (`YYYY-MM-DD`). Use `null` quando não houver informação verificada. O atualizador semanal preserva esses campos, mas não os pesquisa nem atualiza automaticamente; é necessário consultar uma fonte confiável e cadastrá-los manualmente.
 
