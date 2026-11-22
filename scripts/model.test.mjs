@@ -155,3 +155,19 @@ test('estimativa mensal encerra após o último dia; catálogo preserva eventos 
  assert.equal(current.find(v=>v.slug==='edunine').deadline,'2026-09-30');
  assert.equal(current.find(v=>v.slug==='educomp').deadline,'2027-01-18');
 });
+
+test('timeline e lista seguem deadlines mesmo com eventos em ordem diferente e prazo fora da janela', async () => {
+ const {timelineScale} = await import('../assets/timeline.js');
+ const now = new Date(2026,10,22);
+ const venues = [
+  {id:'unknown',conferencia:'A confirmar',deadline:null,event_start:'2027-01-01',event_precision:'day'},
+  {id:'later',conferencia:'Mais tarde',deadline:'2027-03-01',deadline_precision:'day',event_start:'2027-04-01',event_precision:'day'},
+  {id:'manual',conferencia:'Manual',deadline:'2027-04',deadline_precision:'month',deadline_manual:{date:'2027-01-18',precision:'day',status:'confirmed'},event_start:'2027-09-01',event_precision:'day'},
+  {id:'month',conferencia:'Mês',deadline:'2027-02',deadline_precision:'month',event_start:'2027-08-01',event_precision:'day'},
+  {id:'past',conferencia:'Prazo encerrado',deadline:'2026-10-01',deadline_precision:'day',event_start:'2027-11-01',event_precision:'day'}
+ ];
+ const expected=['past','manual','month','later','unknown'];
+ assert.deepEqual(selectVenues(venues).map(v=>v.id),expected);
+ assert.deepEqual(timelineScale(venues,now).rows.map(row=>row.venue.id),expected);
+ assert.equal(venues[2].deadline,'2027-04');
+});
