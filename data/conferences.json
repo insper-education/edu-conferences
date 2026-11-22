@@ -21,7 +21,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-10-10",
+    "event_end": "2027-10-13",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://ieee-edusociety.org/post/announcement/fie-2026-recap",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Estados Unidos",
+    "event_city": "Dallas"
   },
   {
     "id": "fie-2028",
@@ -45,7 +54,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-10",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://ieee-edusociety.org/post/announcement/fie-2026-recap",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-10-10). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "educon-2027",
@@ -69,7 +87,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-04-05",
+    "event_end": "2027-04-09",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://educon-conference.org/2027/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "A página da edição anuncia 5–9/04/2027; prevalece sobre o calendário geral da sociedade, que ainda indica 6–9/04.",
+    "event_country": "Romênia",
+    "event_city": "Timișoara"
   },
   {
     "id": "educon-2028",
@@ -93,7 +120,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-04",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://educon-conference.org//",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Local de 2028 anunciado no calendário oficial da série: Dubai, Emirados Árabes Unidos. Abril é uma projeção mensal baseada em 5–9/04/2027 (https://educon-conference.org/2027/), sem dias ou duração confirmados para 2028.",
+    "event_country": "Emirados Árabes Unidos",
+    "event_city": "Dubai"
   },
   {
     "id": "sigcse-ts-2027",
@@ -117,7 +153,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-02-17",
+    "event_end": "2027-02-20",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://2027.sigcse-ts.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Estados Unidos",
+    "event_city": "Sacramento"
   },
   {
     "id": "sigcse-ts-2028",
@@ -141,7 +186,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-02",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://2027.sigcse-ts.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-02-17). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "iticse-2027",
@@ -165,7 +219,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-07-12",
+    "event_end": "2027-07-14",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://iticse.acm.org/2027/important-dates/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Datas da conferência principal; grupos de trabalho e consórcio doutoral ocorrem antes. Local publicado em https://iticse.acm.org/2027/.",
+    "event_country": "Reino Unido",
+    "event_city": "Glasgow"
   },
   {
     "id": "iticse-2028",
@@ -189,7 +252,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-07",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://iticse.acm.org/2027/important-dates/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-07-12). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Datas da conferência principal; grupos de trabalho e consórcio doutoral ocorrem antes. Local publicado em https://iticse.acm.org/2027/.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "koli-2027",
@@ -213,7 +285,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-11",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.kolicalling.fi/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Mês estimado a partir de 5–8/11/2026. Não foi localizado anúncio de datas ou local para 2027; o local de 2026 não foi copiado.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "koli-2028",
@@ -237,7 +318,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-11",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.kolicalling.fi/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-11). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Mês estimado a partir de 5–8/11/2026. Não foi localizado anúncio de datas ou local para 2027; o local de 2026 não foi copiado.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "paee-ale-2027",
@@ -261,7 +351,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-07-07",
+    "event_end": "2027-07-09",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.huro.ua.es/ale/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Anúncio oficial da rede ALE: 7–9/07/2027, Tecnológico de Monterrey, Campus Ciudad de México.",
+    "event_country": "México",
+    "event_city": "Cidade do México"
   },
   {
     "id": "paee-ale-2028",
@@ -285,7 +384,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-07",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.huro.ua.es/ale/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-07-07). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Anúncio oficial da rede ALE: 7–9/07/2027, Tecnológico de Monterrey, Campus Ciudad de México.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "educomp-2027",
@@ -339,7 +447,16 @@
     },
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-05",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.educompbrasil.org/simposio/2026/educomp",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Mês estimado a partir de 4–8/05/2026. Não foi localizado anúncio oficial do período/local de 2027; https://educomp.sbc.org.br/2027/ não pôde ser consultado.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "educomp-2028",
@@ -364,7 +481,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-05",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.educompbrasil.org/simposio/2026/educomp",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-05). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Mês estimado a partir de 4–8/05/2026. Não foi localizado anúncio oficial do período/local de 2027; https://educomp.sbc.org.br/2027/ não pôde ser consultado.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "cobenge-2027",
@@ -389,7 +515,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-09",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://cobenge26.abenge.org.br/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Mês estimado a partir de 14–17/09/2026. A ABENGE anuncia a edição 2027 em https://admin.abenge.org.br/, mas não foi localizado período/local de 2027 em texto verificável.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "cobenge-2028",
@@ -414,7 +549,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-09",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://cobenge26.abenge.org.br/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-09). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Mês estimado a partir de 14–17/09/2026. A ABENGE anuncia a edição 2027 em https://admin.abenge.org.br/, mas não foi localizado período/local de 2027 em texto verificável.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "lak-2027",
@@ -438,7 +582,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-03-08",
+    "event_end": "2027-03-12",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.solaresearch.org/events/lak/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Brasil",
+    "event_city": "Recife"
   },
   {
     "id": "lak-2028",
@@ -462,7 +615,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-03",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.solaresearch.org/events/lak/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-03-08). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "isls-2027",
@@ -486,7 +648,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-06-12",
+    "event_end": "2027-06-16",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://2027.isls.org/annual-meeting-venue/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Índia",
+    "event_city": "Mumbai"
   },
   {
     "id": "isls-2028",
@@ -510,7 +681,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-06",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://2027.isls.org/annual-meeting-venue/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-06-12). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "asee-2027",
@@ -534,7 +714,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-06-20",
+    "event_end": "2027-06-23",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.asee.org/events/Conferences-and-Meetings/FUTURE-CONFERENCE-DATES",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Canadá",
+    "event_city": "Toronto"
   },
   {
     "id": "asee-2028",
@@ -558,7 +747,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-06-11",
+    "event_end": "2028-06-14",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.asee.org/events/Conferences-and-Meetings/FUTURE-CONFERENCE-DATES",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Estados Unidos",
+    "event_city": "Pittsburgh"
   },
   {
     "id": "icer-2027",
@@ -582,7 +780,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-08-02",
+    "event_end": "2027-08-05",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://2027.icer.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Estados Unidos",
+    "event_city": "Sacramento"
   },
   {
     "id": "icer-2028",
@@ -606,7 +813,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-08",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://2027.icer.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-08-02). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "comped-2027",
@@ -630,7 +846,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-10",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "confirmed",
+    "event_source": "https://sigcse.org/about/update.html",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "A ACM SIGCSE publica outubro de 2027 em São Paulo, Brasil. O mês e o local são oficiais; os dias e a duração ainda não foram publicados.",
+    "event_country": "Brasil",
+    "event_city": "São Paulo"
   },
   {
     "id": "edunine-2027",
@@ -656,7 +881,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-02-28",
+    "event_end": "2027-03-03",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://ieee-edusociety.org/event/conference/ieee-world-engineering-education-conference-2027",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Bolívia",
+    "event_city": "Santa Cruz de la Sierra"
   },
   {
     "id": "edunine-2028",
@@ -680,7 +914,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-02",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://ieee-edusociety.org/event/conference/ieee-world-engineering-education-conference-2027",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-02-28). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "csedu-2027",
@@ -709,7 +952,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-04-16",
+    "event_end": "2027-04-18",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://csedu.scitevents.org/PLVR.aspx?y=2027",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período/local publicados na página oficial do workshop conjunto CSEDU 2027; datas também em https://csedu.scitevents.org/CallforPapers.aspx.",
+    "event_country": "Itália",
+    "event_city": "Roma"
   },
   {
     "id": "csedu-2028",
@@ -733,7 +985,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-04",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://csedu.scitevents.org/PLVR.aspx?y=2027",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-04-16). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período/local publicados na página oficial do workshop conjunto CSEDU 2027; datas também em https://csedu.scitevents.org/CallforPapers.aspx.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "aied-2027",
@@ -757,7 +1018,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-07-18",
+    "event_end": "2027-07-23",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.aied-conference.org/2027/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Austrália",
+    "event_city": "Adelaide"
   },
   {
     "id": "aied-2028",
@@ -781,7 +1051,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-07",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://www.aied-conference.org/2027/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-07-18). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados pela organização para esta edição.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "edm-2027",
@@ -805,7 +1084,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-07-18",
+    "event_end": "2027-07-23",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://educationaldatamining.org/edm2027/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados na página da edição e em https://educationaldatamining.org/edm2027/important-dates/.",
+    "event_country": "Austrália",
+    "event_city": "Adelaide"
   },
   {
     "id": "edm-2028",
@@ -829,7 +1117,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-07",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://educationaldatamining.org/edm2027/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-07-18). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Período e local publicados na página da edição e em https://educationaldatamining.org/edm2027/important-dates/.",
+    "event_country": null,
+    "event_city": null
   },
   {
     "id": "sefi-2027",
@@ -855,7 +1152,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-09-14",
+    "event_end": "2027-09-17",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.sefi.be/activities/events/annual-conference/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Reino Unido",
+    "event_city": "Sheffield"
   },
   {
     "id": "sefi-2028",
@@ -879,7 +1185,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-07-03",
+    "event_end": "2028-07-06",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://www.sefi.be/activities/events/annual-conference/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Período e local publicados pela organização para esta edição.",
+    "event_country": "Dinamarca",
+    "event_city": "Aalborg"
   },
   {
     "id": "idc-2027",
@@ -903,7 +1218,16 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2027-06-21",
+    "event_end": "2027-06-24",
+    "event_precision": "day",
+    "event_status": "confirmed",
+    "event_source": "https://supportletters.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Datas e cidade no serviço oficial de cartas da ACM. O site https://idc.acm.org/2027/ retornou HTTP 403 na consulta.",
+    "event_country": "Estados Unidos",
+    "event_city": "Seattle"
   },
   {
     "id": "idc-2028",
@@ -927,6 +1251,15 @@
     "deadline_manual": null,
     "h5_index": null,
     "h5_source": null,
-    "h5_checked_at": null
+    "h5_checked_at": null,
+    "event_start": "2028-06",
+    "event_end": null,
+    "event_precision": "month",
+    "event_status": "estimated",
+    "event_source": "https://supportletters.acm.org/",
+    "event_checked_at": "2026-11-22",
+    "event_provenance": "Projeção mensal para 2028 a partir da referência da edição 2027 (2027-06-21). Não foi localizado período oficial desta edição; dias, duração e local não são herdados. Referência: Datas e cidade no serviço oficial de cartas da ACM. O site https://idc.acm.org/2027/ retornou HTTP 403 na consulta.",
+    "event_country": null,
+    "event_city": null
   }
 ]

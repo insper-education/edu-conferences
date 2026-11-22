@@ -1,6 +1,6 @@
 # Curadoria venues grupo de pesquisa em educacao - Insper
 
-Site estático em português, com lista, busca, filtros por área, edição e prazo, além de linha do tempo. Inspirado na organização do [Real-Time & Embedded Conferences](https://github.com/automaticdai/realtime-embedded-conferences), com implementação própria e sem dependências npm.
+Site estático em português, com lista de conferências e linha do tempo de prazos e realização. Inspirado na organização do [Real-Time & Embedded Conferences](https://github.com/automaticdai/realtime-embedded-conferences), com implementação própria e sem dependências npm.
 
 ## Prévia local
 
@@ -24,7 +24,7 @@ Envie os arquivos para a branch `main` do seu repositório. Em Settings → Page
 
 Edite `data/conferences.json`. O catálogo mantém 37 edições e 19 venues da lista do grupo. A revisão de 19/11/2026 consultou as páginas oficiais e buscou chamadas para 2027 e 2028. Os registros têm fonte e notas individuais; o atualizador também é executado semanalmente e por acionamento manual no GitHub Actions.
 
-`deadline_precision` é exibido na lista e pode ser filtrado:
+`deadline_precision` define a precisão do prazo exibido:
 
 Para identificar uma conferência brasileira, inclua `"nacional": true` em cada edição em `data/conferences.json`. A interface exibirá 🇧🇷 ao lado do nome; o campo pode ser omitido para as demais.
 
@@ -53,9 +53,9 @@ O campo `deadline_artigo_precision` refere-se apenas ao prazo de artigo e não a
 
 ## Visualizações e validação
 
-A visualização inicial é a linha do tempo horizontal, com uma faixa por edição, eixo mensal compartilhado e linha de hoje. Pontos indicam dias e intervalos vazados indicam meses estimados. A tabela está disponível no botão Lista; filtros se aplicam às duas visualizações. No celular, o gráfico permite rolagem horizontal com nomes fixos.
+A visualização inicial é a linha do tempo horizontal, com uma linha por edição e eixo mensal de hoje (inclusive) até a mesma data no próximo ano (exclusive). Em 29 de fevereiro, o limite do ano seguinte é 28 de fevereiro. Períodos que cruzam os limites são recortados. Círculos indicam deadlines; losangos e faixas roxas indicam início e período de realização. Contorno tracejado identifica estimativas. Datas sem informação ou fora da janela continuam na tabela. A tabela aparece logo abaixo da linha do tempo. As duas visualizações exibem todas as conferências, sem busca ou filtros. No celular, o gráfico permite rolagem horizontal com nomes fixos.
 
-`npm run build` valida IDs, campos, URLs, datas, precisão, confirmação e fonte, e gera `site/`. `npm test` verifica importação, filtros, fusos e geometria da linha do tempo.
+`npm run build` valida IDs, campos, URLs, datas, precisão, confirmação e fonte, e gera `site/`. `npm test` verifica importação, renderização do catálogo, fusos, validação das datas do evento, projeções e recorte da linha do tempo.
 
 ## Deadline manual e automático
 
@@ -77,7 +77,7 @@ Os campos `deadline`, `deadline_precision`, `deadline_status` e os metadados ass
 }
 ```
 
-A regra é única para lista, timeline, ordenação, filtros e contadores:
+A regra é única para lista, timeline e ordenação:
 
 1. Automático com data e `deadline_status: "confirmed"`: mostrar o automático.
 2. Caso contrário, havendo `deadline_manual.date`: mostrar o manual.
@@ -97,8 +97,33 @@ Rode `npm run update-conferences -- --limit=1` para simular uma edição. Por pa
 
 ## Uma próxima edição por conferência
 
-A lista e a timeline usam `upcomingVenues` antes de aplicar busca e filtros: há no máximo uma edição por `slug`. Uma edição posterior fica oculta enquanto o prazo da anterior estiver aberto ou dentro do mês estimado. Prazos exatos respeitam o fuso publicado; estimativas mensais encerram quando termina o mês. Edições sem data permanecem a confirmar, sem inventar um deadline.
+A lista e a timeline usam `upcomingVenues`: há no máximo uma edição por `slug`. Quando há período de realização, a edição permanece visível até o último dia do evento, inclusive, mesmo se o deadline já encerrou. Quando só há mês do evento, permanece até o fim desse mês. Sem data do evento, vale a regra anterior: o prazo de submissão define a próxima edição. Prazos exatos respeitam o fuso publicado; estimativas mensais encerram quando termina o mês. Há no máximo uma edição por conferência; as anteriores continuam no JSON.
 
 Depois do encerramento, usa-se a próxima edição cadastrada. Se ela não existir ou estiver sem prazo, o site projeta o mesmo mês no próximo ciclo anual, com `deadline_precision: "month"` e `deadline_status: "estimated"`. O ano do deadline e o ano da edição são avançados separadamente: um prazo de outubro de 2026 para a edição 2027 vira outubro de 2027 para a edição 2028. A projeção não copia confirmação, fuso, datas auxiliares ou correção manual de outra edição. O link é apenas uma referência e pode continuar apontando para a edição anterior.
 
-Essa seleção/projeção é calculada ao carregar ou filtrar o site, sem precisar de uma execução da LLM. O JSON mantém as edições anteriores como histórico e base das projeções; o site não grava arquivos no navegador. Os filtros de edição não revelam duplicatas futuras ainda ocultas. Projeções anuais não confirmam a realização da próxima conferência.
+Essa seleção/projeção é calculada ao carregar o site, sem precisar de uma execução da LLM. O JSON mantém as edições anteriores como histórico e base das projeções; o site não grava arquivos no navegador. Projeções anuais não confirmam a realização da próxima conferência.
+
+## Datas e local de realização
+
+Cada registro continua no mesmo array de `data/conferences.json`, com os campos anteriores preservados. Os campos adicionais são:
+
+| Campo | Conteúdo |
+| --- | --- |
+| `event_start` | Primeiro dia (`YYYY-MM-DD`), mês (`YYYY-MM`) ou `null` |
+| `event_end` | Último dia **inclusive**, ou `null` quando a duração é desconhecida |
+| `event_precision` | `day`, `month` ou `null`; início e fim usam a mesma precisão |
+| `event_status` | `confirmed`, `estimated` ou `unknown` |
+| `event_source` | URL da evidência oficial ou da referência que fundamenta a estimativa |
+| `event_checked_at` | Data da consulta, `YYYY-MM-DD` |
+| `event_provenance` | Evidência, ressalvas e fundamento da estimativa |
+| `event_country`, `event_city` | Local publicado para aquela edição; `null` se não confirmado |
+
+Precisão e confirmação são independentes: CompEd 2027 tem outubro e São Paulo oficialmente publicados, portanto usa `month` e `confirmed`, com fim `null`. Estimativas anuais guardam somente o mês e nunca copiam dias, duração ou local da edição anterior. Um mês informado com fim `null` ocupa o mês na timeline como janela de incerteza, sem afirmar que a conferência dura o mês inteiro. O tooltip explicita que dias e duração estão a confirmar.
+
+Sem data, use início/fim/precisão `null` e status `unknown`. Uma data exige fonte e justificativa. O build rejeita datas impossíveis, período invertido, ano incompatível, cidade sem país e confirmação sem fonte. Datas do evento são dias de calendário, sem horário ou fuso de deadline.
+
+A coluna **Data da conferência**, imediatamente após **Deadline**, mostra período, confirmação, cidade/país e link da fonte. Os indicadores do evento exibem essas informações ao passar o mouse ou receber foco pelo teclado.
+
+A pesquisa inicial de 22/11/2026 foi feita uma conferência por vez para as 19 séries (37 registros): 18 períodos confirmados e 19 estimativas mensais. ASEE e SEFI têm datas oficiais para 2028; EDUCON tem Dubai confirmado para 2028, mas mês ainda projetado. EduComp, COBENGE e Koli 2027 usam estimativas baseadas em 2026. As URLs e ressalvas ficam em cada registro. Para EDUCON 2027, adotou-se 5–9 de abril da página da edição, registrando a divergência com o calendário da sociedade (6–9 de abril).
+
+O atualizador semanal também considera `event_source` e pode atualizar os campos `event_*` com evidência da mesma edição. Sem nova evidência, deve preservar os valores e a data da última consulta do evento. Datas e locais conhecidos para edições futuras são mantidos quando o site projeta um deadline ausente. Ao precisar criar uma nova edição em memória, o site projeta somente o mês do evento, com status `estimated` e local vazio.
