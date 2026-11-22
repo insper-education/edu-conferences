@@ -22,6 +22,12 @@ test('app exibe o catálogo completo sem controles de filtro', async () => {
   assert.match(timeline,/Inserido manualmente/);
   assert.match(timeline,/🇧🇷/);
   assert.match(timeline,/aria-label="Conferência brasileira"/);
+  for (const flag of ['🇺🇸','🇨🇦','🇲🇽','🇧🇴','🇦🇺','🇮🇳','🇪🇺']) {
+   assert.ok(timeline.split('<table>')[0].includes(flag), `Bandeira ausente na timeline: ${flag}`);
+   assert.ok(timeline.split('<table>')[1].includes(flag), `Bandeira ausente na lista: ${flag}`);
+  }
+  for (const country of ['Reino Unido','Romênia','Itália']) assert.ok(timeline.includes(`title="Europa — ${country}">🇪🇺</span>`));
+  assert.doesNotMatch(timeline,/🇬🇧|🇷🇴|🇮🇹/);
   assert.ok(timeline.indexOf('deadline-chart') < timeline.indexOf('<table>'));
   assert.match(timeline,/<table>/);
   const list = element('results').innerHTML;
