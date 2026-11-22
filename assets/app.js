@@ -54,7 +54,7 @@ function deadlineEventConnector(deadline, event) {
  if (!deadline || !event) return '';
  // For a monthly deadline, attach to the middle of its uncertainty range.
  const from = deadline.left + deadline.width / 2;
- return `<svg class="deadline-event-connector" aria-hidden="true" focusable="false"><line x1="${from}%" y1="30%" x2="${event.left}%" y2="72%" /></svg>`;
+ return `<svg class="deadline-event-connector" aria-hidden="true" focusable="false"><line x1="${from}%" y1="50%" x2="${event.left}%" y2="50%" /></svg>`;
 }
 function renderTimeline(selected) {
  const heading = '<h3 class="timeline-heading">Deadlines e realização</h3><p class="timeline-window">De hoje até um ano à frente. Datas fora desse período e informações a confirmar estão na tabela abaixo.</p>';

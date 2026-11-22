@@ -50,8 +50,7 @@
 .timeline-legend{gap:12px 24px;font-size:12px}
 .timeline-legend i{display:inline-block;flex-shrink:0}
 .deadline-lane{min-height:64px}
-.deadline-lane>.deadline-marker{top:30%}
-.deadline-lane>.event-marker{top:72%}
+.deadline-lane>.deadline-marker{top:50%}
 .deadline-marker.certainty-estimated{border-style:dashed}
 .deadline-marker.event-range{min-width:10px;height:10px;background:var(--marker-bg);border:2px solid var(--marker);transform:translateY(-50%);border-radius:2px}
 .deadline-marker.event-range:not(.clipped-start):after,.deadline-marker.event-point:after{content:'';position:absolute;left:-5px;top:50%;width:9px;height:9px;background:var(--marker);border:1px solid white;transform:translateY(-50%) rotate(45deg)}
