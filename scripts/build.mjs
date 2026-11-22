@@ -1,8 +1,10 @@
+import {validateEvent} from '../assets/events.js';
 import {mkdir, rm, copyFile, cp, readFile, writeFile, readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 const data = JSON.parse(await readFile('data/conferences.json', 'utf8'));
 const ids = new Set();
 for (const venue of data) {
+  validateEvent(venue);
   if (!venue.id || ids.has(venue.id)) throw new Error('ID ausente ou duplicado');
   ids.add(venue.id);
   for (const key of ['conferencia','area','site_url','ano_edicao']) if (!venue[key]) throw new Error(`${venue.id}: ${key} obrigatório`);

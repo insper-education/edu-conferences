@@ -22,24 +22,36 @@ test('37 edições preservadas, filtros combinados e busca sem acentos', async (
  assert.equal(selectVenues(venues).at(-1).deadline,null);
 });
 
-test('eixo compartilhado preserva meses estimados, dias e posição de hoje', async () => {
+test('timeline limita o eixo a um ano e recorta períodos nas bordas', async () => {
  const {timelineScale} = await import('../assets/timeline.js');
+ const now = new Date(2027,0,15);
  const scale = timelineScale([
-  {conferencia:'Estimativa',deadline:'2027-02'},
-  {conferencia:'Dia',deadline:'2027-01-15'},
-  {conferencia:'Sem prazo',deadline:null}
- ],new Date(2027,0,15));
- assert.equal(scale.rows.length,2);
- assert.equal(scale.months[0].date.toISOString(),'2026-12-01T00:00:00.000Z');
- const future = timelineScale([{conferencia:'Futura',deadline:'2027-04-15'}],new Date(2026,10,19));
- assert.equal(future.months[0].date.toISOString(),'2026-10-01T00:00:00.000Z');
- assert.equal(scale.rows[0].venue.conferencia,'Dia');
- assert.equal(scale.rows[0].width,0);
- assert.equal(scale.rows[0].left,scale.today);
- assert.equal(scale.rows[1].end-scale.rows[1].start,28*86400000);
- assert.ok(scale.rows.every(r=>r.left>=0&&r.left+r.width<=100));
- assert.equal(timelineScale([{deadline:null}]),null);
- assert.equal(timelineScale([{conferencia:'Dia',deadline:'2027-01-15'}],new Date(2028,0,1)).today,null);
+  {conferencia:'Estimativa',deadline:'2027-01',deadline_precision:'month'},
+  {conferencia:'Hoje',deadline:'2027-01-15',deadline_precision:'day'},
+  {conferencia:'Evento sem deadline',deadline:null,event_start:'2027-01-10',event_end:'2027-01-20',event_precision:'day'},
+  {conferencia:'Borda final',deadline:'2029-01-01',event_start:'2028-01-10',event_end:'2028-01-20',event_precision:'day'},
+  {conferencia:'Fora',deadline:'2028-01-15',deadline_precision:'day'},
+  {conferencia:'Passado',deadline:'2027-01-14',deadline_precision:'day'},
+  {conferencia:'Sem data',deadline:null}
+ ],now);
+ assert.equal(new Date(scale.start).toISOString(),'2027-01-15T00:00:00.000Z');
+ assert.equal(new Date(scale.end).toISOString(),'2028-01-15T00:00:00.000Z');
+ assert.equal(scale.rows.length,4);
+ assert.equal(scale.today,0);
+ const today = scale.rows.find(r=>r.venue.conferencia==='Hoje');
+ assert.equal(today.deadline.left,0);
+ assert.equal(today.deadline.width,0);
+ const first = scale.rows.find(r=>r.venue.conferencia==='Evento sem deadline');
+ assert.equal(first.deadline,null);
+ assert.equal(first.event.left,0);
+ assert.equal(first.event.clippedStart,true);
+ const last = scale.rows.find(r=>r.venue.conferencia==='Borda final');
+ assert.equal(last.event.clippedEnd,true);
+ assert.equal(last.event.left+last.event.width,100);
+ assert.ok(scale.rows.flatMap(r=>[r.deadline,r.event]).filter(Boolean).every(m=>m.left>=0&&m.left+m.width<=100));
+ assert.equal(timelineScale([{deadline:null}],now),null);
+ const leap=timelineScale([{deadline:'2024-03-01',deadline_precision:'day'}],new Date(2024,1,29));
+ assert.equal(new Date(leap.end).toISOString(),'2025-02-28T00:00:00.000Z');
 });
 
 test('deadline geral inclui submissões de artigos sem etapa de resumo', async () => {
@@ -85,7 +97,7 @@ test('manual substitui automático ausente, estimado ou não confirmado; confirm
  assert.equal(resolveDeadline({...base,deadline_manual:null}).deadline,'2026-12');
  assert.equal(resolveDeadline({deadline:null}).deadline_origin,null);
  const {timelineScale} = await import('../assets/timeline.js');
- assert.equal(timelineScale([base]).rows[0].venue.deadline,'2027-01-18');
+ assert.equal(timelineScale([base],new Date(2026,10,22)).rows[0].venue.deadline,'2027-01-18');
 });
 test('EduComp conserva o automático e mostra a correção manual', async () => {
  const {resolveDeadline} = await import('../assets/model.js');
@@ -127,7 +139,7 @@ test('projeta só o mês, preenche edição sem data e não herda a correção m
  const later = upcomingVenues([old],new Date(2030,11,1))[0];
  assert.equal(later.deadline,'2031-11');
 });
-test('estimativa mensal só encerra após o último dia; catálogo não tem duplicatas ou vencidos', async () => {
+test('estimativa mensal encerra após o último dia; catálogo preserva eventos futuros', async () => {
  const {upcomingVenues} = await import('../assets/model.js');
  const v={id:'x-2027',slug:'x',conferencia:'X',ano_edicao:2027,deadline:'2027-01',deadline_precision:'month'};
  assert.equal(upcomingVenues([v],new Date(2027,0,31))[0].id,'x-2027');
@@ -137,9 +149,9 @@ test('estimativa mensal só encerra após o último dia; catálogo não tem dupl
  const current=upcomingVenues(raw,now);
  assert.equal(current.length,19);
  assert.equal(new Set(current.map(v=>v.slug)).size,19);
- assert.ok(current.every(v=>statusOf(v,now)!=='closed'));
+ assert.ok(current.every(v=>v.event_start >= '2026-11'));
  assert.equal(current.find(v=>v.slug==='iticse').ano_edicao,2027);
- assert.equal(current.find(v=>v.slug==='educon').ano_edicao,2028);
- assert.equal(current.find(v=>v.slug==='edunine').deadline,'2027-09');
+ assert.equal(current.find(v=>v.slug==='educon').ano_edicao,2027);
+ assert.equal(current.find(v=>v.slug==='edunine').deadline,'2026-09-30');
  assert.equal(current.find(v=>v.slug==='educomp').deadline,'2027-01-18');
 });
