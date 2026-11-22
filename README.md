@@ -1,6 +1,6 @@
 # Curadoria venues grupo de pesquisa em educacao - Insper
 
-Site estático em português, com lista, busca, filtros por área, edição e prazo, além de linha do tempo. Inspirado na organização do [Real-Time & Embedded Conferences](https://github.com/automaticdai/realtime-embedded-conferences), com implementação própria e sem dependências npm.
+Site estático em português, com lista de conferências e linha do tempo de prazos. Inspirado na organização do [Real-Time & Embedded Conferences](https://github.com/automaticdai/realtime-embedded-conferences), com implementação própria e sem dependências npm.
 
 ## Prévia local
 
@@ -24,7 +24,7 @@ Envie os arquivos para a branch `main` do seu repositório. Em Settings → Page
 
 Edite `data/conferences.json`. O catálogo mantém 37 edições e 19 venues da lista do grupo. A revisão de 19/11/2026 consultou as páginas oficiais e buscou chamadas para 2027 e 2028. Os registros têm fonte e notas individuais; o atualizador também é executado semanalmente e por acionamento manual no GitHub Actions.
 
-`deadline_precision` é exibido na lista e pode ser filtrado:
+`deadline_precision` define a precisão do prazo exibido:
 
 Para identificar uma conferência brasileira, inclua `"nacional": true` em cada edição em `data/conferences.json`. A interface exibirá 🇧🇷 ao lado do nome; o campo pode ser omitido para as demais.
 
@@ -53,9 +53,9 @@ O campo `deadline_artigo_precision` refere-se apenas ao prazo de artigo e não a
 
 ## Visualizações e validação
 
-A visualização inicial é a linha do tempo horizontal, com uma faixa por edição, eixo mensal compartilhado e linha de hoje. Pontos indicam dias e intervalos vazados indicam meses estimados. A tabela está disponível no botão Lista; filtros se aplicam às duas visualizações. No celular, o gráfico permite rolagem horizontal com nomes fixos.
+A visualização inicial é a linha do tempo horizontal, com uma faixa por edição, eixo mensal compartilhado e linha de hoje. Pontos indicam dias e intervalos vazados indicam meses estimados. A tabela aparece logo abaixo da linha do tempo. As duas visualizações exibem todas as conferências, sem busca ou filtros. No celular, o gráfico permite rolagem horizontal com nomes fixos.
 
-`npm run build` valida IDs, campos, URLs, datas, precisão, confirmação e fonte, e gera `site/`. `npm test` verifica importação, filtros, fusos e geometria da linha do tempo.
+`npm run build` valida IDs, campos, URLs, datas, precisão, confirmação e fonte, e gera `site/`. `npm test` verifica importação, renderização do catálogo, fusos e geometria da linha do tempo.
 
 ## Deadline manual e automático
 
@@ -77,7 +77,7 @@ Os campos `deadline`, `deadline_precision`, `deadline_status` e os metadados ass
 }
 ```
 
-A regra é única para lista, timeline, ordenação, filtros e contadores:
+A regra é única para lista, timeline e ordenação:
 
 1. Automático com data e `deadline_status: "confirmed"`: mostrar o automático.
 2. Caso contrário, havendo `deadline_manual.date`: mostrar o manual.
@@ -97,8 +97,8 @@ Rode `npm run update-conferences -- --limit=1` para simular uma edição. Por pa
 
 ## Uma próxima edição por conferência
 
-A lista e a timeline usam `upcomingVenues` antes de aplicar busca e filtros: há no máximo uma edição por `slug`. Uma edição posterior fica oculta enquanto o prazo da anterior estiver aberto ou dentro do mês estimado. Prazos exatos respeitam o fuso publicado; estimativas mensais encerram quando termina o mês. Edições sem data permanecem a confirmar, sem inventar um deadline.
+A lista e a timeline usam `upcomingVenues`: há no máximo uma edição por `slug`. Uma edição posterior fica oculta enquanto o prazo da anterior estiver aberto ou dentro do mês estimado. Prazos exatos respeitam o fuso publicado; estimativas mensais encerram quando termina o mês. Edições sem data permanecem a confirmar, sem inventar um deadline.
 
 Depois do encerramento, usa-se a próxima edição cadastrada. Se ela não existir ou estiver sem prazo, o site projeta o mesmo mês no próximo ciclo anual, com `deadline_precision: "month"` e `deadline_status: "estimated"`. O ano do deadline e o ano da edição são avançados separadamente: um prazo de outubro de 2026 para a edição 2027 vira outubro de 2027 para a edição 2028. A projeção não copia confirmação, fuso, datas auxiliares ou correção manual de outra edição. O link é apenas uma referência e pode continuar apontando para a edição anterior.
 
-Essa seleção/projeção é calculada ao carregar ou filtrar o site, sem precisar de uma execução da LLM. O JSON mantém as edições anteriores como histórico e base das projeções; o site não grava arquivos no navegador. Os filtros de edição não revelam duplicatas futuras ainda ocultas. Projeções anuais não confirmam a realização da próxima conferência.
+Essa seleção/projeção é calculada ao carregar o site, sem precisar de uma execução da LLM. O JSON mantém as edições anteriores como histórico e base das projeções; o site não grava arquivos no navegador. Projeções anuais não confirmam a realização da próxima conferência.

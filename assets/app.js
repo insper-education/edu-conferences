@@ -16,25 +16,19 @@ function conferenceLabel(venue) {
  return {abbreviation, fullName};
 }
 let venues = [];
-const filters = {area:new Set()};
-function renderFilterButtons() {
- for (const [key, options] of Object.entries({area:[...new Set(venues.map(v=>v.area))].sort().map(area=>[area,area])})) {
-  $(key+'-buttons').innerHTML = options.map(([value,label])=>`<button type="button" data-filter="${key}" data-value="${escape(value)}" aria-pressed="${value ? filters[key].has(value) : filters[key].size === 0}">${escape(label)}</button>`).join('');
- }
-}
 function render() {
  const current = upcomingVenues(venues);
- const selected = selectVenues(current.filter(v => !filters.area.size || filters.area.has(v.area)), {query:$('query').value,sort:'deadline'});
+ const selected = selectVenues(current);
  $('count').textContent = '';
  $('count').hidden = true;
- if (!selected.length) { $('results').innerHTML = '<p class="empty">Nenhum venue encontrado. Tente outros termos ou limpe os filtros.</p>'; return; }
+ if (!selected.length) { $('results').innerHTML = '<p class="empty">Nenhuma conferência disponível no catálogo.</p>'; return; }
  $('results').innerHTML = renderTimeline(selected) + renderList(selected);
 }
 function renderTimeline(selected) {
  const undated = selected.filter(v => !v.deadline);
  const pending = undated.length ? `<div class="pending-deadlines"><h4>Prazo a confirmar</h4><ul>${undated.map(v => `<li><a href="${safeUrl(v.site_url)}">${escape(conferenceLabel(v).abbreviation)}${brazilFlag(v)}</a> · ${v.ano_edicao}</li>`).join('')}</ul></div>` : '';
  const scale = timelineScale(selected);
- if (!scale) return `<h3 class="timeline-heading">Deadlines</h3><p class="empty">Nenhum prazo informado para esta seleção.</p>${pending}`;
+ if (!scale) return `<h3 class="timeline-heading">Deadlines</h3><p class="empty">Nenhum prazo informado no catálogo.</p>${pending}`;
  const monthFormat = new Intl.DateTimeFormat('pt-BR',{month:'short',year:'2-digit',timeZone:'UTC'});
  const grid = scale.months.map(m=>`<span class="axis-grid" style="left:${m.left}%"></span>`).join('');
  const today = scale.today === null ? '' : `<span class="today-line" style="left:${scale.today}%" title="Hoje"></span>`;
@@ -49,29 +43,11 @@ function renderTimeline(selected) {
 function renderList(selected) {
  return `<h3 class="timeline-heading">Conferências</h3><div class="table-wrap"><table><caption class="skip">Venues de pesquisa em educação</caption><thead><tr><th scope="col">Conferência</th><th scope="col">Deadline</th><th scope="col">Área / curadoria</th></tr></thead><tbody>${selected.map(v => `<tr id="${escape(v.id)}"><td><a href="${safeUrl(v.site_url)}"><span class="conference-name">${escape(conferenceLabel(v).abbreviation)}${brazilFlag(v)}</span><span class="edition">${v.ano_edicao}</span></a><span class="sub">${escape(conferenceLabel(v).fullName)}</span></td><td><strong class="deadline-date certainty-${escape(v.deadline_status)}"${v.deadline_status === 'estimated' ? ' title="Estimativa baseada nos prazos da edição anterior"' : v.deadline_status === 'confirmed' ? ' title="Data confirmada na fonte oficial"' : ''}>${date(v.deadline)}</strong><span class="badge deadline-certainty ${escape(v.deadline_status)}"${v.deadline_status === 'estimated' ? ' title="Estimativa baseada nos prazos da edição anterior"' : v.deadline_status === 'confirmed' ? ' title="Data confirmada na fonte oficial"' : ''}>${v.deadline_status === 'confirmed' ? 'Confirmado' : v.deadline_status === 'estimated' ? 'Estimativa' : 'A confirmar'}</span></td><td>${escape(v.area)}</td></tr>`).join('')}</tbody></table></div>`;
 }
-$('filters').addEventListener('submit', e => e.preventDefault());
-$('filters').addEventListener('input', render);
-$('filters').addEventListener('click', event => {
- const button = event.target.closest('button[data-filter]');
- if (!button || button.dataset.filter !== 'area') return;
- const area = button.dataset.value;
- if (!area) filters.area.clear();
- else if (filters.area.has(area)) filters.area.delete(area);
- else filters.area.add(area);
- renderFilterButtons();
- render();
-});
-$('filters').addEventListener('reset', () => {
- filters.area.clear();
- renderFilterButtons();
- setTimeout(render, 0);
-});
 try {
  const response = await fetch('data/conferences.json', {cache:'no-store'});
  if (!response.ok) throw new Error('Falha no catálogo');
   venues = await response.json();
   const latestCheck = venues.flatMap(v => [v.checked_at, v.deadline_manual?.checked_at]).filter(value => /^\d{4}-\d{2}-\d{2}$/.test(value || '')).sort().at(-1);
   if (latestCheck && $('last-updated')) $('last-updated').textContent = `Catálogo atualizado automaticamente em: ${latestCheck.split('-').reverse().join('/')}`;
-  renderFilterButtons();
  render();
 } catch (error) { $('count').hidden = false; $('count').textContent = 'Não foi possível carregar o catálogo. Atualize a página para tentar novamente.'; }
