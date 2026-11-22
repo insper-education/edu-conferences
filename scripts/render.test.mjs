@@ -43,7 +43,7 @@ test('app exibe o catálogo completo sem controles de filtro', async () => {
   assert.match(timeline,/<span class="sub event-location">São Paulo, Brasil<\/span>/);
   assert.match(timeline,/Confirmado · dias a confirmar/);
   assert.match(timeline,/Local a confirmar/);
-  assert.match(element('last-updated').textContent,/Última consulta do catálogo: 22\/11\/2026/);
+  assert.match(element('last-updated').textContent,/Catálogo atualizado automaticamente em: 22\/11\/2026/);
   const data = JSON.parse(await readFile('data/conferences.json','utf8'));
   const slugs = new Set(data.map(v=>v.slug));
   assert.equal((timeline.match(/<tr id=/g)||[]).length,slugs.size);
