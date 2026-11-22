@@ -62,7 +62,6 @@
 .event-marker.clipped-start{border-left-style:dotted}.event-marker.clipped-end{border-right-style:dotted}
 .event-certainty{display:block;margin-top:4px;background:transparent;padding:0;font-size:12px}
 .event-date{font-size:13px}
-.table-wrap td .event-source{display:inline-block;font-size:11px;font-weight:400;text-decoration:underline;margin-top:5px}
 .event-cell{min-width:220px}
 .deadline-tooltip{max-width:290px;width:max-content;white-space:normal}
 .deadline-marker:focus-visible .deadline-tooltip{display:block}
