@@ -166,8 +166,22 @@ test('timeline e lista seguem deadlines mesmo com eventos em ordem diferente e p
   {id:'month',conferencia:'Mês',deadline:'2027-02',deadline_precision:'month',event_start:'2027-08-01',event_precision:'day'},
   {id:'past',conferencia:'Prazo encerrado',deadline:'2026-10-01',deadline_precision:'day',event_start:'2027-11-01',event_precision:'day'}
  ];
- const expected=['past','manual','month','later','unknown'];
- assert.deepEqual(selectVenues(venues).map(v=>v.id),expected);
+ const expected=['manual','month','later','past','unknown'];
+ assert.deepEqual(selectVenues(venues,{},now).map(v=>v.id),expected);
  assert.deepEqual(timelineScale(venues,now).rows.map(row=>row.venue.id),expected);
  assert.equal(venues[2].deadline,'2027-04');
+});
+
+test('próximos deadlines vêm antes dos encerrados respeitando AoE e mês estimado', () => {
+ const venues=[
+  {id:'old',conferencia:'Antigo',deadline:'2026-12-01',deadline_precision:'day'},
+  {id:'future',conferencia:'Futuro',deadline:'2027-02-01',deadline_precision:'day'},
+  {id:'unknown',conferencia:'Sem prazo',deadline:null},
+  {id:'recent',conferencia:'Recente',deadline:'2027-01-10',deadline_precision:'day'},
+  {id:'aoe',conferencia:'AoE',deadline:'2027-01-11',deadline_precision:'day',deadline_at:'2027-01-11T23:59:00-12:00'},
+  {id:'month',conferencia:'Estimado',deadline:'2027-01',deadline_precision:'month'}
+ ];
+ const order = instant => selectVenues(venues,{},new Date(instant)).map(v=>v.id);
+ assert.deepEqual(order('2027-01-12T11:58:00Z'),['month','aoe','future','recent','old','unknown']);
+ assert.deepEqual(order('2027-01-12T12:00:00Z'),['month','future','aoe','recent','old','unknown']);
 });

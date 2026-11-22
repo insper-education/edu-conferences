@@ -82,10 +82,14 @@ function estimateEdition(previous, year, existing) {
    estimated_from:previous.id, estimated_from_deadline:previous.deadline
  });
 }
+const deadlineOrderGroup = (v,now) => !v.deadline ? 2 : statusOf(v,now) === 'closed' ? 1 : 0;
 export function selectVenues(venues, {query='',area='',year='',status='',precision='',sort='deadline'}={},now=new Date()) {
  return venues.map(resolveDeadline).filter(v=>(!area||v.area===area)&&(!year||String(v.ano_edicao)===year)&&(!status||statusOf(v,now)===status)&&(!precision||(v.deadline_precision||'unknown')===precision)&&normalize([v.conferencia,v.slug,v.area,v.ano_edicao].join(' ')).includes(normalize(query))).sort((a,b)=>{
  if(sort==='name') return a.conferencia.localeCompare(b.conferencia,'pt-BR')||a.ano_edicao-b.ano_edicao;
  if(sort==='year') return a.ano_edicao-b.ano_edicao||a.conferencia.localeCompare(b.conferencia);
- return (a.deadline||'9999').localeCompare(b.deadline||'9999')||a.conferencia.localeCompare(b.conferencia);
+ const groupA = deadlineOrderGroup(a,now), groupB = deadlineOrderGroup(b,now);
+ if (groupA !== groupB) return groupA-groupB;
+ const byDate = (a.deadline||'9999').localeCompare(b.deadline||'9999');
+ return (groupA === 1 ? -byDate : byDate)||a.conferencia.localeCompare(b.conferencia);
  });
 }

@@ -19,7 +19,7 @@ export function timelineScale(venues, now = new Date()) {
   const from = Math.max(start,marker.start), to = Math.min(end,marker.end);
   return {...marker,left:position(from),width:position(to)-position(from),clippedStart:marker.start<start,clippedEnd:marker.end>end};
  };
- const rows = selectVenues(venues).map(venue => ({venue,
+ const rows = selectVenues(venues,{},now).map(venue => ({venue,
   deadline:clip(interval(venue.deadline,null,venue.deadline_precision)),
   event:clip(interval(venue.event_start,venue.event_end,venue.event_precision,true))
  })).filter(row => row.deadline || row.event);
